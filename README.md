@@ -1,11 +1,11 @@
-# Hi, I'm Muhammad Mohsin Nisar 👋  
-**Android Software Engineer | SDK Development | Mobile & 5G Technologies**  
+# Hi, I'm Mohsin Nisar 👋  
+**Android Software Engineer | Android Apps | SDK Development | Mobile & 5G Technologies**  
 📍 Berlin, Germany · ✉️ [mohsinnisarbutt60@gmail.com](mailto:mohsinnisarbutt60@gmail.com)
 
 ---
 
 ### 🚀 About Me  
-I'm a passionate Android Software Engineer with strong experience in SDK development, system-level Android programming, and 5G-enabled mobile solutions. Skilled in Kotlin, Java, and AOSP, I specialize in optimizing app performance and delivering robust, scalable features in fast-paced environments. I enjoy cross-functional collaboration and contributing to open source projects that advance mobile technology.
+I'm a passionate Android Software Engineer with strong experience in SDK development, system-level Android programming, and 5G-enabled mobile solutions. Skilled in Kotlin, Java, and AOSP, I specialize in optimizing app performance and delivering robust, scalable features in fast-paced environments. I enjoy cross-functional collaboration and contributing to open source projects that advance mobile technology. Currently exploring KMP. 
 
 ---
 
