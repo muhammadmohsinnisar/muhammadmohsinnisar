@@ -45,7 +45,8 @@ A lightweight Android prototype app designed to help users organize and manage d
 
 #### OpenMobileNetworkToolkit (OMNT)  
 Research-focused Android app providing detailed measurement and analysis tools for mobile communication networks (3GPP 2/3/4/5G).  
-- Collects radio and network data such as RSSI, RSRQ, RSRP, GNSS position, Cell ID  
+- Collects radio and network data such as RSSI, RSRQ, RSRP, GNSS position, Cell ID
+- Exploring and benchmarking Network Slicing capabilities 
 - Supports bandwidth and latency tests via iPerf3 and ICMP ping  
 - Stores data locally or streams to InfluxDB with Grafana dashboards for visualization  
 - Configures carrier settings and accesses advanced device info without root access  
