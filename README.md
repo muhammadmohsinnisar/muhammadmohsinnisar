@@ -39,7 +39,7 @@ A lightweight Android prototype app designed to help users organize and manage d
 - Planned enhancements: Firebase authentication, real-time syncing, push notifications, offline mode, dark theme, and Play Store readiness  
 - Focused on personalized productivity with secure user data and seamless multi-device support  
 
-[Explore the repo →](https://github.com/your-repo-link)
+[Explore the repo →]([https://github.com/your-repo-link](https://github.com/muhammadmohsinnisar/DailyTaskManager))
 
 ---
 
@@ -51,7 +51,7 @@ Research-focused Android app providing detailed measurement and analysis tools f
 - Configures carrier settings and accesses advanced device info without root access  
 - Developed for research projects prioritizing privacy, stability, and extensibility  
 
-[Explore the repo →](https://github.com/muhammadmohsinnisar/DailyTaskManager)
+[Explore the repo →](https://github.com/omnt/OpenMobileNetworkToolkit)
 
 ---
 
