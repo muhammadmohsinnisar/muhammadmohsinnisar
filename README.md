@@ -39,7 +39,7 @@ A lightweight Android prototype app designed to help users organize and manage d
 - Planned enhancements: Firebase authentication, real-time syncing, push notifications, offline mode, dark theme, and Play Store readiness  
 - Focused on personalized productivity with secure user data and seamless multi-device support  
 
-[Explore the repo →]([https://github.com/your-repo-link](https://github.com/muhammadmohsinnisar/DailyTaskManager))
+[Explore the repo →]([https://github.com/your-repo-link](https://github.com/muhammadmohsinnisar/DailyTaskManager)
 
 ---
 
