@@ -33,6 +33,24 @@ I'm a passionate Android Software Engineer with strong experience in SDK develop
 
 ### 🌟 Open Source Contributions
 
+#### MoodMate: Emotional State Tracker & Visualizer (Prototype)
+- An Android prototype app designed to help users track, analyze, and visualize their mood patterns using emoticons mapped to valence-arousal dimensions.
+
+- Core features:
+* Log and view daily moods with intuitive emoji interface.
+* Visualize emotional data on a circumplex graph and Russell’s Affect Grid.
+* Get insights on average emotional states over time.
+
+- Planned enhancements:
+* Enhanced mood analytics and personalized recommendations
+* Integration with wearable devices and biometric data
+* Mood journaling with AI sentiment analysis
+* Dark mode, multi-language support, cloud sync, and notifications
+* Focused on empowering self-awareness and mental wellness through accessible mood tracking and innovative data visualization.
+
+
+[Explore the repo →](https://github.com/muhammadmohsinnisar/MoodMate)
+
 #### Daily Task Manager (Prototype)  
 A lightweight Android prototype app designed to help users organize and manage daily tasks efficiently with a simple, intuitive UI.  
 - Core features: Add, edit, delete tasks, basic task listing  
