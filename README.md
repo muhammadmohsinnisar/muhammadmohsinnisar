@@ -33,6 +33,17 @@ I'm a passionate Android Software Engineer with strong experience in SDK develop
 
 ### 🌟 Open Source Contributions
 
+### check-doc-references: GitHub Action for Documentation Code Reference Validation
+- A GitHub Action that scans Markdown documentation files for inline code references and verifies they exist in your source code, preventing broken or outdated doc references.
+- Parses Markdown docs to extract inline code spans
+- Checks source code for matching references
+- Reports broken links and optionally fails CI runs on errors
+- Fully configurable paths for docs and code directories
+- Helps maintain accurate, up-to-date documentation automatically
+
+[Explore the repo →](https://github.com/muhammadmohsinnisar/check-doc-references)
+
+
 #### MoodMate: Emotional State Tracker & Visualizer (Prototype)
 - An Android prototype app designed to help users track, analyze, and visualize their mood patterns using emoticons mapped to valence-arousal dimensions.
 - Log and view daily moods with intuitive emoji interface.
