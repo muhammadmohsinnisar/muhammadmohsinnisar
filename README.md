@@ -33,6 +33,22 @@ I'm a passionate Android Software Engineer with strong experience in SDK develop
 
 ### 🌟 Open Source Contributions
 
+### Event Companion App (Prototype)
+-A prototype Android app for managing event participation using QR codes and mobile interaction.
+-Scan event-specific QR codes to retrieve tickets and validate access.
+-View event schedule and session details.
+-Browse speaker information and profiles.
+-Designed to eventually support multiple events per user with persistent ticket management and backend integration.
+-Current version uses mocked API eventcompanion-mock-api for testing and demonstration.
+
+#### Planned enhancements:
+-Real backend integration to link QR code with live event data
+-Multi-event architecture with event list and switching
+-User authentication and event-specific profiles
+- UI/UX refinements and production readiness
+
+[Explore the repo →](https://github.com/muhammadmohsinnisar/event-companion)
+
 ### check-doc-references: GitHub Action for Documentation Code Reference Validation
 - A GitHub Action that scans Markdown documentation files for inline code references and verifies they exist in your source code, preventing broken or outdated doc references.
 - Parses Markdown docs to extract inline code spans
