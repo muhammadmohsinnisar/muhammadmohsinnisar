@@ -11,7 +11,9 @@ I'm a passionate Android Software Engineer with strong experience in SDK develop
 
 ### 🛠️ Technical Skills
 
-- **Languages:** Kotlin, Java, C, R, SQL, C# 
+- **Languages:** Kotlin, Java, C, R, SQL, C#
+- **Android:** Jetpack Compose, Room, ViewModel, LiveData, StateFlow, WorkManager
+- **Architecture & Patterns:** MVVM, Repository Pattern, Clean Architecture, TDD/BDD
 - **Technologies & Tools:** Android SDK, Android Studio, AOSP, Git, Agile, JIRA, Gradle, SDN, 5G, CI/CD, Unit Testing, TDD, BDD  , ARCore (Exploratory) 
 - **Soft Skills:** Complex Problem Solving, Leadership, Communication, Team Collaboration  
 - **Languages Spoken:** English (Fluent), German (Intermediate), Urdu (Native)  
