@@ -41,7 +41,7 @@ I'm a passionate Android Software Engineer with strong experience in SDK develop
 - Graceful error handling with fallback API and reactive UI updates
 - Simple and intuitive UI for selecting currencies and entering amounts
 
-##### Planned: 
+##### Planned enhancements:
 * Rate graphs
 * Design refinements
 * Support for more currencies, and crypto mode
