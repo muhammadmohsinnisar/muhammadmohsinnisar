@@ -33,6 +33,21 @@ I'm a passionate Android Software Engineer with strong experience in SDK develop
 
 ### 🌟 Open Source Contributions
 
+### FiatX – Currency Converter App
+- A modern Android app for converting between fiat currencies using real-time exchange rates with offline support.
+- Fetches fiat currency list and exchange rates from public APIs
+- Caches rates locally with Room and refreshes every 24 hours
+- Clean MVVM architecture with Repository, Retrofit, and StateFlow
+- Graceful error handling with fallback API and reactive UI updates
+- Simple and intuitive UI for selecting currencies and entering amounts
+
+##### Planned: 
+* Rate graphs
+* Design refinements
+* Support for more currencies, and crypto mode
+
+[Explore the repo →](https://github.com/muhammadmohsinnisar/fiatx)
+
 ### Event Companion App (Prototype)
 - A prototype Android app for managing event participation using QR codes and mobile interaction.
 - Scan event-specific QR codes to retrieve tickets and validate access.
