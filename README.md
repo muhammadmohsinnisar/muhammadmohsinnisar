@@ -32,6 +32,26 @@ I'm a passionate Android Software Engineer with strong experience in SDK develop
   Led mobile development for education and POS platforms. Mentored interns and improved QA workflows in Agile environments.
 
 ---
+### 🌟 Exclusive Projects
+
+### Remote Device Farm
+- A comprehensive web-based Android device farm with network access and modern UI for remote device management and testing.
+- Real-time screen sharing and device control entirely through the browser (no native apps required)
+- Advanced ADB log viewer with Android Studio-like filtering capabilities (level, tag, package, search)
+- Hardware button controls (volume, power, navigation) and touch input simulation
+- Samsung device optimization with device-specific performance tuning
+- APK installation and management with drag-and-drop support (up to 500MB)
+- Glass morphism UI design with smooth animations and responsive layout
+- Network access support - control devices from any device on your WiFi network
+- Built with Node.js/Express backend, React frontend, and Socket.IO for real-time communication
+
+#### Planned enhancements:
+* Wireless ADB integration for cable-free device management
+* Multi-user session support with device reservation system
+* Cloud deployment with Docker containerization
+* Advanced automation scripting and test execution capabilities
+
+[Explore the repo →](https://github.com/muhammadmohsinnisar/remote-device-farm)
 
 ### 🌟 Open Source Contributions
 
