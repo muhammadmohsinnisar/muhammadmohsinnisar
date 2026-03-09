@@ -1,6 +1,6 @@
 # Mohsin Nisar
 
-**Software Engineer (Android) · SDK · Feature **
+*Software Engineer (Android) · SDK · Feature *
 
 Berlin, DE · [mohsinnisarbutt60@gmail.com](mailto:mohsinnisarbutt60@gmail.com) · [LinkedIn](https://www.linkedin.com/in/mohsinnisar795/)
 
