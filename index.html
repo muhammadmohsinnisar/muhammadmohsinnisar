@@ -10,22 +10,25 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #0d1117;
-      --bg-hero: linear-gradient(180deg, rgba(22,27,34,0.6) 0%, transparent 60%);
-      --surface: #161b22;
-      --surface-hover: #1c2128;
-      --border: #30363d;
-      --text: #e6edf3;
+      --bg: #0a0e14;
+      --bg-hero: linear-gradient(160deg, rgba(22,27,34,0.7) 0%, rgba(13,17,23,0.4) 50%, transparent 100%);
+      --surface: #151b23;
+      --surface-hover: #1a2129;
+      --border: #2d3741;
+      --border-subtle: #21262d;
+      --text: #f0f6fc;
       --text-muted: #8b949e;
       --accent: #58a6ff;
       --accent-hover: #79b8ff;
       --green: #3fb950;
       --orange: #d29922;
       --purple: #a371f7;
-      --max-w: 680px;
+      --max-w: 700px;
       --icon: 20px;
-      --radius: 12px;
-      --radius-sm: 8px;
+      --radius: 10px;
+      --radius-sm: 6px;
+      --shadow: 0 1px 2px rgba(0,0,0,0.2);
+      --shadow-hover: 0 8px 24px rgba(0,0,0,0.35);
     }
     * { box-sizing: border-box; }
     body {
@@ -126,42 +129,47 @@
     }
     .section:last-of-type { border-bottom: 0; }
     .section-title {
-      font-size: 0.8rem;
-      font-weight: 600;
+      font-size: 0.7rem;
+      font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.12em;
       color: var(--text-muted);
-      margin: 0 0 1.25rem;
+      margin: 0 0 1.5rem;
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.6rem;
     }
     .section-title .icon { color: var(--accent); }
 
-    .project-list { display: flex; flex-direction: column; gap: 0.875rem; }
+    .project-list { display: flex; flex-direction: column; gap: 1rem; }
     .project {
-      display: flex;
-      align-items: flex-start;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: start;
       gap: 1rem;
       background: var(--surface);
       border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
       border-radius: var(--radius);
-      padding: 1.15rem 1.35rem;
+      padding: 1.25rem 1.5rem;
       text-decoration: none;
       color: inherit;
+      box-shadow: var(--shadow);
       opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.4s ease-out, transform 0.4s ease-out, border-color 0.2s, background 0.2s, box-shadow 0.2s;
+      transform: translateY(20px);
+      transition: opacity 0.35s ease-out, transform 0.35s ease-out, border-color 0.2s, background 0.2s, box-shadow 0.2s;
     }
+    .project.project--app { border-left-color: var(--green); }
+    .project.project--research { border-left-color: var(--purple); }
+    .project.project--university { border-left-color: var(--orange); }
     .project.visible {
       opacity: 1;
       transform: translateY(0);
     }
-    .project:hover { transform: translateY(-2px); }
+    .project:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); }
     .project.visible:hover {
       border-color: var(--border);
       background: var(--surface-hover);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
     }
     .project-icon-wrap {
       width: 40px;
@@ -177,7 +185,7 @@
     .project-icon-wrap.research { background: rgba(163, 113, 247, 0.12); color: var(--purple); }
     .project-icon-wrap.university { background: rgba(210, 153, 34, 0.12); color: var(--orange); }
     .project-icon-wrap.app { background: rgba(63, 185, 80, 0.12); color: var(--green); }
-    .project-body { flex: 1; min-width: 0; }
+    .project-body { flex: 1 1 180px; min-width: 0; overflow: visible; }
     .project-header {
       display: flex;
       align-items: center;
@@ -185,7 +193,7 @@
       gap: 0.75rem;
       flex-wrap: wrap;
     }
-    .project-name { font-weight: 600; font-size: 1rem; color: var(--text); }
+    .project-name { font-weight: 600; font-size: 1.05rem; color: var(--text); letter-spacing: -0.01em; }
     .project-meta {
       font-size: 0.75rem;
       color: var(--text-muted);
@@ -195,10 +203,10 @@
       gap: 0.35rem;
     }
     .project-desc {
-      font-size: 0.875rem;
+      font-size: 0.9rem;
       color: var(--text-muted);
-      margin: 0.4rem 0 0;
-      line-height: 1.5;
+      margin: 0.45rem 0 0;
+      line-height: 1.55;
     }
     .project-actions {
       margin-top: 0.65rem;
@@ -208,15 +216,18 @@
       gap: 0.75rem;
       font-size: 0.8rem;
     }
-    .project-actions a, .project-actions .link-text {
+    .project-actions a {
       color: var(--accent);
       text-decoration: none;
       display: inline-flex;
       align-items: center;
       gap: 0.35rem;
+      padding: 0.2rem 0;
+      border-radius: 4px;
+      transition: color 0.15s;
     }
-    .project-actions a:hover { text-decoration: underline; }
-    .project-actions .link-text { cursor: default; }
+    .project-actions a:hover { color: var(--accent-hover); text-decoration: underline; }
+    .project-actions .link-text { cursor: default; color: var(--accent); display: inline-flex; align-items: center; gap: 0.35rem; }
     .project-actions svg { flex-shrink: 0; }
     .project .external-icon {
       color: var(--text-muted);
@@ -296,7 +307,7 @@
           <svg class="icon icon-sm external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
         </a>
 
-        <a href="https://github.com/muhammadmohsinnisar/fiatx" class="project" target="_blank" rel="noopener">
+        <a href="https://github.com/muhammadmohsinnisar/fiatx" class="project project--app" target="_blank" rel="noopener">
           <span class="project-icon-wrap app" aria-hidden="true"><svg class="icon icon-sm" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></span>
           <div class="project-body">
             <div class="project-header">
@@ -309,7 +320,7 @@
           <svg class="icon icon-sm external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
         </a>
 
-        <a href="https://github.com/muhammadmohsinnisar/MoodMate" class="project" target="_blank" rel="noopener">
+        <a href="https://github.com/muhammadmohsinnisar/MoodMate" class="project project--app" target="_blank" rel="noopener">
           <span class="project-icon-wrap app" aria-hidden="true"><svg class="icon icon-sm" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></span>
           <div class="project-body">
             <div class="project-header">
@@ -325,7 +336,7 @@
           <svg class="icon icon-sm external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
         </a>
 
-        <a href="https://github.com/muhammadmohsinnisar/event-companion" class="project" target="_blank" rel="noopener">
+        <a href="https://github.com/muhammadmohsinnisar/event-companion" class="project project--app" target="_blank" rel="noopener">
           <span class="project-icon-wrap app" aria-hidden="true"><svg class="icon icon-sm" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span>
           <div class="project-body">
             <div class="project-header">
@@ -341,7 +352,7 @@
           <svg class="icon icon-sm external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
         </a>
 
-        <a href="https://github.com/muhammadmohsinnisar/DailyTaskManager" class="project" target="_blank" rel="noopener">
+        <a href="https://github.com/muhammadmohsinnisar/DailyTaskManager" class="project project--app" target="_blank" rel="noopener">
           <span class="project-icon-wrap app" aria-hidden="true"><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>
           <div class="project-body">
             <div class="project-header">
@@ -354,7 +365,7 @@
           <svg class="icon icon-sm external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
         </a>
 
-        <a href="https://github.com/omnt/OpenMobileNetworkToolkit" class="project" target="_blank" rel="noopener">
+        <a href="https://github.com/omnt/OpenMobileNetworkToolkit" class="project project--research" target="_blank" rel="noopener">
           <span class="project-icon-wrap research" aria-hidden="true"><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/><circle cx="12" cy="12" r="4"/></svg></span>
           <div class="project-body">
             <div class="project-header">
@@ -367,7 +378,7 @@
           <svg class="icon icon-sm external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
         </a>
 
-        <a href="https://github.com/muhammadmohsinnisar/5GBroadcastPlayer_AWT" class="project" target="_blank" rel="noopener">
+        <a href="https://github.com/muhammadmohsinnisar/5GBroadcastPlayer_AWT" class="project project--university" target="_blank" rel="noopener">
           <span class="project-icon-wrap university" aria-hidden="true"><svg class="icon icon-sm" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></span>
           <div class="project-body">
             <div class="project-header">
@@ -380,7 +391,7 @@
           <svg class="icon icon-sm external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
         </a>
 
-        <a href="https://github.com/muhammadmohsinnisar/Moringguide20" class="project" target="_blank" rel="noopener">
+        <a href="https://github.com/muhammadmohsinnisar/Moringguide20" class="project project--university" target="_blank" rel="noopener">
           <span class="project-icon-wrap university" aria-hidden="true"><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></span>
           <div class="project-body">
             <div class="project-header">
@@ -412,21 +423,29 @@
       var projects = section ? section.querySelectorAll('.project') : [];
       var footer = document.querySelector('.footer');
 
+      function revealProjects() {
+        if (!section || section.classList.contains('revealed')) return;
+        section.classList.add('revealed');
+        var delay = 0;
+        projects.forEach(function (el) {
+          el.style.transitionDelay = delay + 'ms';
+          el.classList.add('visible');
+          delay += 35;
+        });
+      }
+
       var observer = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
           if (!entry.isIntersecting) return;
-          if (entry.target === section) {
-            section.classList.add('revealed');
-            projects.forEach(function (el, i) {
-              el.style.transitionDelay = (i * 55) + 'ms';
-              el.classList.add('visible');
-            });
-          }
+          if (entry.target === section) revealProjects();
           if (entry.target === footer) footer.classList.add('visible');
         });
-      }, { rootMargin: '0px 0px -40px 0px', threshold: 0 });
+      }, { rootMargin: '0px 0px -20px 0px', threshold: 0 });
 
-      if (section) observer.observe(section);
+      if (section) {
+        observer.observe(section);
+        if (section.getBoundingClientRect().top < window.innerHeight) revealProjects();
+      }
       if (footer) observer.observe(footer);
     })();
   </script>
