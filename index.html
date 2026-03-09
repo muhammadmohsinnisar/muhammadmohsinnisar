@@ -11,13 +11,21 @@
   <style>
     :root {
       --bg: #0d1117;
+      --bg-hero: linear-gradient(180deg, rgba(22,27,34,0.6) 0%, transparent 60%);
       --surface: #161b22;
-      --border: #21262d;
+      --surface-hover: #1c2128;
+      --border: #30363d;
       --text: #e6edf3;
       --text-muted: #8b949e;
       --accent: #58a6ff;
       --accent-hover: #79b8ff;
-      --max-w: 640px;
+      --green: #3fb950;
+      --orange: #d29922;
+      --purple: #a371f7;
+      --max-w: 680px;
+      --icon: 20px;
+      --radius: 12px;
+      --radius-sm: 8px;
     }
     * { box-sizing: border-box; }
     body {
@@ -30,32 +38,87 @@
     }
     .page { max-width: var(--max-w); margin: 0 auto; padding: 0 24px 4rem; }
 
+    .icon { width: var(--icon); height: var(--icon); flex-shrink: 0; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .icon-sm { width: 16px; height: 16px; }
+
     .hero {
       padding: 4rem 0 3rem;
       border-bottom: 1px solid var(--border);
+      position: relative;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0; top: -20%;
+      background: var(--bg-hero); pointer-events: none;
     }
     .hero h1 {
-      font-size: 1.75rem;
+      font-size: 2rem;
       font-weight: 700;
-      margin: 0 0 0.35rem;
+      margin: 0 0 0.4rem;
       letter-spacing: -0.03em;
+      position: relative;
     }
     .hero .role {
       color: var(--text-muted);
-      font-size: 0.95rem;
-      margin: 0 0 1.25rem;
+      font-size: 1rem;
+      margin: 0 0 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      position: relative;
     }
+    .hero .role .dot { color: var(--accent); font-weight: 700; }
     .hero .links {
       display: flex;
       flex-wrap: wrap;
-      gap: 1rem;
-      font-size: 0.9rem;
+      gap: 0.5rem;
+      position: relative;
     }
     .hero .links a {
-      color: var(--accent);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 0.9rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      color: var(--text);
       text-decoration: none;
+      font-size: 0.9rem;
+      transition: border-color 0.2s, background 0.2s, color 0.2s;
     }
-    .hero .links a:hover { color: var(--accent-hover); text-decoration: underline; }
+    .hero .links a:hover {
+      border-color: var(--accent);
+      background: rgba(88, 166, 255, 0.08);
+      color: var(--accent-hover);
+    }
+    .hero .links a svg { opacity: 0.9; transition: transform 0.2s ease; }
+    .hero .links a:hover svg { transform: scale(1.1); }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .hero .hero-line, .section-title, .project, .footer { opacity: 1; transform: none; animation: none; }
+      .project.visible { opacity: 1; transform: none; }
+      .hero.animate-in .hero-line { animation: none; opacity: 1; }
+      .section.revealed .section-title { animation: none; opacity: 1; }
+      .footer.visible { animation: none; opacity: 1; }
+    }
+    .hero .hero-line { opacity: 0; }
+    .hero.animate-in .hero-line { animation: fadeInUp 0.55s ease-out forwards; }
+    .hero.animate-in .hero-line-1 { animation-delay: 0.1s; }
+    .hero.animate-in .hero-line-2 { animation-delay: 0.22s; }
+    .hero.animate-in .hero-line-3 { animation-delay: 0.38s; }
+
+    .section-title { opacity: 0; }
+    .section.revealed .section-title { animation: fadeInUp 0.5s ease-out forwards; }
 
     .section {
       padding: 2.5rem 0;
@@ -63,181 +126,309 @@
     }
     .section:last-of-type { border-bottom: 0; }
     .section-title {
-      font-size: 0.75rem;
+      font-size: 0.8rem;
       font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.08em;
       color: var(--text-muted);
       margin: 0 0 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
     }
-    .project-list { display: flex; flex-direction: column; gap: 0.75rem; }
+    .section-title .icon { color: var(--accent); }
+
+    .project-list { display: flex; flex-direction: column; gap: 0.875rem; }
     .project {
-      display: block;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 1rem 1.25rem;
+      border-radius: var(--radius);
+      padding: 1.15rem 1.35rem;
       text-decoration: none;
       color: inherit;
-      transition: border-color 0.15s ease, background 0.15s ease;
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.4s ease-out, transform 0.4s ease-out, border-color 0.2s, background 0.2s, box-shadow 0.2s;
     }
-    .project:hover {
-      border-color: var(--accent);
-      background: rgba(88, 166, 255, 0.06);
+    .project.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
+    .project:hover { transform: translateY(-2px); }
+    .project.visible:hover {
+      border-color: var(--border);
+      background: var(--surface-hover);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    }
+    .project-icon-wrap {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-sm);
+      background: rgba(88, 166, 255, 0.12);
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .project-icon-wrap.research { background: rgba(163, 113, 247, 0.12); color: var(--purple); }
+    .project-icon-wrap.university { background: rgba(210, 153, 34, 0.12); color: var(--orange); }
+    .project-icon-wrap.app { background: rgba(63, 185, 80, 0.12); color: var(--green); }
+    .project-body { flex: 1; min-width: 0; }
     .project-header {
       display: flex;
-      align-items: baseline;
+      align-items: center;
       justify-content: space-between;
       gap: 0.75rem;
       flex-wrap: wrap;
     }
-    .project-name { font-weight: 600; font-size: 0.95rem; color: var(--text); }
+    .project-name { font-weight: 600; font-size: 1rem; color: var(--text); }
     .project-meta {
       font-size: 0.75rem;
       color: var(--text-muted);
       font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
     }
     .project-desc {
-      font-size: 0.85rem;
+      font-size: 0.875rem;
       color: var(--text-muted);
-      margin: 0.35rem 0 0;
+      margin: 0.4rem 0 0;
       line-height: 1.5;
     }
     .project-actions {
-      margin-top: 0.6rem;
+      margin-top: 0.65rem;
       display: flex;
       flex-wrap: wrap;
+      align-items: center;
       gap: 0.75rem;
       font-size: 0.8rem;
     }
-    .project-actions a {
+    .project-actions a, .project-actions .link-text {
       color: var(--accent);
       text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
     }
     .project-actions a:hover { text-decoration: underline; }
+    .project-actions .link-text { cursor: default; }
+    .project-actions svg { flex-shrink: 0; }
+    .project .external-icon {
+      color: var(--text-muted);
+      flex-shrink: 0;
+      margin-left: auto;
+      transition: color 0.2s, transform 0.2s;
+    }
+    .project:hover .external-icon { color: var(--accent); transform: translate(2px, -2px); }
+    .project-icon-wrap { transition: transform 0.25s ease; }
+    .project:hover .project-icon-wrap { transform: scale(1.08); }
+
+    .footer { opacity: 0; }
+    .footer.visible { animation: fadeIn 0.5s ease-out 0.2s forwards; }
 
     .footer {
       padding: 2.5rem 0;
       text-align: center;
       font-size: 0.85rem;
       color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
     }
-    .footer a { color: var(--accent); text-decoration: none; }
+    .footer a {
+      color: var(--accent);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
     .footer a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
   <div class="page">
     <header class="hero">
-      <h1>Mohsin Nisar</h1>
-      <p class="role">Software Engineer (Android) · SDK · Mobile & 5G</p>
-      <nav class="links">
-        <a href="https://github.com/muhammadmohsinnisar">GitHub</a>
-        <a href="https://www.linkedin.com/in/mohsinnisar795/">LinkedIn</a>
-        <a href="mailto:mohsinnisarbutt60@gmail.com">Email</a>
-        <a href="https://github.com/muhammadmohsinnisar/muhammadmohsinnisar/blob/main/README.md">Resume / README</a>
+      <h1 class="hero-line hero-line-1">Mohsin Nisar</h1>
+      <p class="role hero-line hero-line-2">Software Engineer (Android) <span class="dot">·</span> SDK <span class="dot">·</span> Mobile & 5G</p>
+      <nav class="links hero-line hero-line-3">
+        <a href="https://github.com/muhammadmohsinnisar" aria-label="GitHub">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          GitHub
+        </a>
+        <a href="https://www.linkedin.com/in/mohsinnisar795/" aria-label="LinkedIn">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4V8h4v2a2 2 0 0 0 4 0V8h4z"/><rect x="2" y="8" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          LinkedIn
+        </a>
+        <a href="mailto:mohsinnisarbutt60@gmail.com" aria-label="Email">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          Email
+        </a>
+        <a href="https://github.com/muhammadmohsinnisar/muhammadmohsinnisar#readme" aria-label="Resume / README">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          Resume
+        </a>
       </nav>
     </header>
 
-    <section class="section">
-      <h2 class="section-title">Projects & open source</h2>
+    <section class="section" id="projects">
+      <h2 class="section-title">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+        Projects & open source
+      </h2>
       <div class="project-list">
         <a href="https://github.com/muhammadmohsinnisar/remote-device-farm" class="project" target="_blank" rel="noopener">
-          <div class="project-header">
-            <span class="project-name">Remote Device Farm</span>
-            <span class="project-meta">Aug 2025</span>
+          <span class="project-icon-wrap" aria-hidden="true"><svg class="icon icon-sm" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>
+          <div class="project-body">
+            <div class="project-header">
+              <span class="project-name">Remote Device Farm</span>
+              <span class="project-meta">Aug 2025</span>
+            </div>
+            <p class="project-desc">Web-based infrastructure for remote access to physical Android devices; distributed testing and automated flows.</p>
+            <div class="project-actions"><span class="link-text">View on GitHub</span><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></div>
           </div>
-          <p class="project-desc">Web-based infrastructure for remote access to physical Android devices; distributed testing and automated flows.</p>
-          <div class="project-actions">
-            <span>View on GitHub →</span>
-          </div>
+          <svg class="icon icon-sm external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
         </a>
 
         <a href="https://github.com/muhammadmohsinnisar/fiatx" class="project" target="_blank" rel="noopener">
-          <div class="project-header">
-            <span class="project-name">FiatX</span>
-            <span class="project-meta">Jun 2025</span>
+          <span class="project-icon-wrap app" aria-hidden="true"><svg class="icon icon-sm" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></span>
+          <div class="project-body">
+            <div class="project-header">
+              <span class="project-name">FiatX</span>
+              <span class="project-meta">Jun 2025</span>
+            </div>
+            <p class="project-desc">Currency converter with live rates and Room-based caching; database-first for offline use.</p>
+            <div class="project-actions"><span class="link-text">View on GitHub</span><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></div>
           </div>
-          <p class="project-desc">Currency converter with live rates and Room-based caching; database-first for offline use.</p>
-          <div class="project-actions">
-            <span>View on GitHub →</span>
-          </div>
+          <svg class="icon icon-sm external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
         </a>
 
         <a href="https://github.com/muhammadmohsinnisar/MoodMate" class="project" target="_blank" rel="noopener">
-          <div class="project-header">
-            <span class="project-name">MoodMate</span>
-            <span class="project-meta">May 2025</span>
+          <span class="project-icon-wrap app" aria-hidden="true"><svg class="icon icon-sm" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></span>
+          <div class="project-body">
+            <div class="project-header">
+              <span class="project-name">MoodMate</span>
+              <span class="project-meta">May 2025</span>
+            </div>
+            <p class="project-desc">Privacy-first mental wellness tracker; Russell’s Circumplex Model, local-only storage. On Google Play.</p>
+            <div class="project-actions">
+              <span class="link-text">GitHub</span>
+              <a href="https://play.google.com/store/apps/details?id=com.mohsin.moodmate" target="_blank" rel="noopener" onclick="event.stopPropagation()">Play Store <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+            </div>
           </div>
-          <p class="project-desc">Privacy-first mental wellness tracker; Russell’s Circumplex Model, local-only storage. On Google Play.</p>
-          <div class="project-actions">
-            <span>GitHub</span>
-            <a href="https://play.google.com/store/apps/details?id=com.mohsin.moodmate" target="_blank" rel="noopener" onclick="event.stopPropagation()">Play Store</a>
-          </div>
+          <svg class="icon icon-sm external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
         </a>
 
         <a href="https://github.com/muhammadmohsinnisar/event-companion" class="project" target="_blank" rel="noopener">
-          <div class="project-header">
-            <span class="project-name">Event Companion</span>
-            <span class="project-meta">May 2025</span>
+          <span class="project-icon-wrap app" aria-hidden="true"><svg class="icon icon-sm" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span>
+          <div class="project-body">
+            <div class="project-header">
+              <span class="project-name">Event Companion</span>
+              <span class="project-meta">May 2025</span>
+            </div>
+            <p class="project-desc">Offline-first event scheduling with QR-based import and Room-backed persistence; Ktor backend.</p>
+            <div class="project-actions">
+              <span class="link-text">Android</span>
+              <a href="https://github.com/muhammadmohsinnisar/ktor-event-companion" target="_blank" rel="noopener" onclick="event.stopPropagation()">Backend <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+            </div>
           </div>
-          <p class="project-desc">Offline-first event scheduling with QR-based import and Room-backed persistence; Ktor backend.</p>
-          <div class="project-actions">
-            <span>Android</span>
-            <a href="https://github.com/muhammadmohsinnisar/ktor-event-companion" target="_blank" rel="noopener" onclick="event.stopPropagation()">Backend</a>
-          </div>
+          <svg class="icon icon-sm external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
         </a>
 
         <a href="https://github.com/muhammadmohsinnisar/DailyTaskManager" class="project" target="_blank" rel="noopener">
-          <div class="project-header">
-            <span class="project-name">Daily Task Manager</span>
-            <span class="project-meta">May 2025</span>
+          <span class="project-icon-wrap app" aria-hidden="true"><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>
+          <div class="project-body">
+            <div class="project-header">
+              <span class="project-name">Daily Task Manager</span>
+              <span class="project-meta">May 2025</span>
+            </div>
+            <p class="project-desc">Lightweight task-management prototype; architecture prepared for Firebase sync.</p>
+            <div class="project-actions"><span class="link-text">View on GitHub</span><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></div>
           </div>
-          <p class="project-desc">Lightweight task-management prototype; architecture prepared for Firebase sync.</p>
-          <div class="project-actions">
-            <span>View on GitHub →</span>
-          </div>
+          <svg class="icon icon-sm external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
         </a>
 
         <a href="https://github.com/omnt/OpenMobileNetworkToolkit" class="project" target="_blank" rel="noopener">
-          <div class="project-header">
-            <span class="project-name">OpenMobileNetworkToolkit (OMNT)</span>
-            <span class="project-meta">Fraunhofer FOKUS · Dec 2023</span>
+          <span class="project-icon-wrap research" aria-hidden="true"><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/><circle cx="12" cy="12" r="4"/></svg></span>
+          <div class="project-body">
+            <div class="project-header">
+              <span class="project-name">OpenMobileNetworkToolkit (OMNT)</span>
+              <span class="project-meta">Fraunhofer FOKUS · Dec 2023</span>
+            </div>
+            <p class="project-desc">Android research tool for 4G/5G KPI collection and visualisation; SDN and slicing benchmarks.</p>
+            <div class="project-actions"><span class="link-text">View on GitHub</span><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></div>
           </div>
-          <p class="project-desc">Android research tool for 4G/5G KPI collection and visualisation; SDN and slicing benchmarks.</p>
-          <div class="project-actions">
-            <span>View on GitHub →</span>
-          </div>
+          <svg class="icon icon-sm external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
         </a>
 
         <a href="https://github.com/muhammadmohsinnisar/5GBroadcastPlayer_AWT" class="project" target="_blank" rel="noopener">
-          <div class="project-header">
-            <span class="project-name">5G Broadcast Player (AWT)</span>
-            <span class="project-meta">University · Jan 2022</span>
+          <span class="project-icon-wrap university" aria-hidden="true"><svg class="icon icon-sm" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></span>
+          <div class="project-body">
+            <div class="project-header">
+              <span class="project-name">5G Broadcast Player (AWT)</span>
+              <span class="project-meta">University · Jan 2022</span>
+            </div>
+            <p class="project-desc">Android client for 5G broadcast/streaming; ExoPlayer, DASH, HLS, SmoothStreaming, Cronet.</p>
+            <div class="project-actions"><span class="link-text">View on GitHub</span><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></div>
           </div>
-          <p class="project-desc">Android client for 5G broadcast/streaming; ExoPlayer, DASH, HLS, SmoothStreaming, Cronet.</p>
-          <div class="project-actions">
-            <span>View on GitHub →</span>
-          </div>
+          <svg class="icon icon-sm external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
         </a>
 
         <a href="https://github.com/muhammadmohsinnisar/Moringguide20" class="project" target="_blank" rel="noopener">
-          <div class="project-header">
-            <span class="project-name">Moringguide20</span>
-            <span class="project-meta">University · Jun 2021</span>
+          <span class="project-icon-wrap university" aria-hidden="true"><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></span>
+          <div class="project-body">
+            <div class="project-header">
+              <span class="project-name">Moringguide20</span>
+              <span class="project-meta">University · Jun 2021</span>
+            </div>
+            <p class="project-desc">Android application for the DCATI initiative.</p>
+            <div class="project-actions"><span class="link-text">View on GitHub</span><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></div>
           </div>
-          <p class="project-desc">Android application for the DCATI initiative.</p>
-          <div class="project-actions">
-            <span>View on GitHub →</span>
-          </div>
+          <svg class="icon icon-sm external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
         </a>
       </div>
     </section>
 
     <footer class="footer">
-      <p><a href="https://github.com/muhammadmohsinnisar">muhammadmohsinnisar</a> · Berlin</p>
+      <svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+      <a href="https://github.com/muhammadmohsinnisar">muhammadmohsinnisar</a>
+      <span>·</span>
+      <span>Berlin</span>
     </footer>
   </div>
+
+  <script>
+    (function () {
+      var hero = document.querySelector('.hero');
+      if (hero) hero.classList.add('animate-in');
+
+      var section = document.getElementById('projects');
+      var projects = section ? section.querySelectorAll('.project') : [];
+      var footer = document.querySelector('.footer');
+
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          if (entry.target === section) {
+            section.classList.add('revealed');
+            projects.forEach(function (el, i) {
+              el.style.transitionDelay = (i * 55) + 'ms';
+              el.classList.add('visible');
+            });
+          }
+          if (entry.target === footer) footer.classList.add('visible');
+        });
+      }, { rootMargin: '0px 0px -40px 0px', threshold: 0 });
+
+      if (section) observer.observe(section);
+      if (footer) observer.observe(footer);
+    })();
+  </script>
 </body>
 </html>
