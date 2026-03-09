@@ -108,4 +108,4 @@ Chronological order; selected work reflecting progression from university throug
 
 [mohsinnisarbutt60@gmail.com](mailto:mohsinnisarbutt60@gmail.com) · [LinkedIn](https://www.linkedin.com/in/mohsinnisar795/) · [GitHub](https://github.com/muhammadmohsinnisar)
 
-**Portfolio (GitHub Pages):** [muhammadmohsinnisar.github.io/muhammadmohsinnisar](https://muhammadmohsinnisar.github.io/muhammadmohsinnisar) — Enable in repo **Settings → Pages → Source: Deploy from branch → Branch: main, / (root)**.
+**Portfolio (GitHub Pages):** [muhammadmohsinnisar.github.io/muhammadmohsinnisar](https://muhammadmohsinnisar.github.io/muhammadmohsinnisar)
