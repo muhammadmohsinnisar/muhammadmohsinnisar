@@ -1,145 +1,111 @@
-# Hi, I'm Mohsin Nisar 👋  
-**Android Software Engineer | Android Apps | SDK Development | Mobile & 5G Technologies**  
-📍 Berlin, Germany · ✉️ [mohsinnisarbutt60@gmail.com](mailto:mohsinnisarbutt60@gmail.com)
+# Mohsin Nisar
+
+**Software Engineer (Android) · SDK · Mobile & 5G**
+
+Berlin, DE · [mohsinnisarbutt60@gmail.com](mailto:mohsinnisarbutt60@gmail.com) · [LinkedIn](https://www.linkedin.com/in/mohsinnisar795/)
 
 ---
 
-### 🚀 About Me  
-I'm a passionate Android Software Engineer with strong experience in SDK development, system-level Android programming, and 5G-enabled mobile solutions. Skilled in Kotlin, Java, and AOSP, I specialize in optimizing app performance and delivering robust, scalable features in fast-paced environments. I enjoy cross-functional collaboration and contributing to open source projects that advance mobile technology. Currently exploring KMP. 
+## Experience
+
+**DIGITAL TURBINE** — Berlin, DE  
+*Software Engineer* · August 2023 – Present
+
+Member of a cross-functional team delivering SDK integrations and product components across multiple partner applications and release cycles.
+
+- **Feature delivery & product collaboration**
+  - Participated in backlog grooming sessions to clarify requirements, assess feasibility, and shape delivery scope.
+  - Analysed competitor SDK behaviour and translated findings into actionable feature and workflow improvements.
+  - Delivered integration updates and feature improvements in collaboration with Product and QA, supporting implementation, release readiness, and post-release stability.
+  - Acted as Android and mobile development support contact during release cycles, investigating integration issues, analysing production incidents, and coordinating fixes to ensure stable rollouts.
+- **Process & engineering improvements**
+  - Introduced a refined classification model for recurring third-party adapter updates, distinguishing non-breaking SDK changes from API-impacting updates, eliminating unnecessary development-to-testing cycles.
+  - Designed and institutionalised a structured workflow for reverse engineering customer-reported integration failures, reducing analysis effort by ~50%.
+  - Led internal initiative to analyse competitor implementations and document technical gaps for potential product differentiation.
+- **Tooling & quality**
+  - Designed and implemented an internal remote device access platform (initially prototyped during an internal hackathon), later adopted for production use, removing dependency on in-office device access.
+  - Increased unit test coverage by ~15% within one year by embedding structured testing practices into CI workflows.
+  - Developed an agent-based integration layer enabling structured interaction between product components and LLM-based systems.
+
+**FRAUNHOFER FOKUS** — Berlin, DE  
+*Research Assistant* · November 2020 – April 2023
+
+- Designed and implemented Android-based benchmarking tools to evaluate 5G Standalone network performance using native AOSP capabilities.
+- Developed the OpenMobileNetworkToolkit (OMNT) leveraging privileged AOSP APIs and UE-side extensions.
+- Built data collection and visualisation pipelines using InfluxDB and Python to analyse latency, throughput, and QoS metrics.
+- Collaborated with multidisciplinary teams on experimental prototypes for slicing, mobility handover, and QoE evaluation.
+- Authored technical documentation and supported research demonstrations.
+
+**E.C. TECHNOLOGIES (Pvt) Ltd.** — Karachi, PK  
+*Software Engineer (Android)* · January 2019 – September 2019
+
+- Developed Android applications for POS and EdTech platforms supporting offline access and real-time synchronisation.
+- Implemented MVVM architecture to improve modularity and maintainability.
+- Led migration of legacy modules to modern architecture components, reducing onboarding time for new developers.
+- Implemented offline-first data handling and crash monitoring via Firebase.
+- Collaborated with product and design teams in Agile sprint cycles to refine and deliver features.
+
+**MESHTECH SOLUTIONS** — Karachi, PK  
+*Android Developer (Part-time)* · January 2018 – December 2018
+
+- Contributed to development of Android applications supporting UI and backend integration.
+- Gained experience across the full development lifecycle from requirements to deployment.
 
 ---
 
-### 🛠️ Technical Skills
+## Projects & open source
 
-- **Languages:** Kotlin, Java, C, R, SQL, C#
-- **Android:** Jetpack Compose, Room, ViewModel, LiveData, StateFlow, WorkManager
-- **Architecture & Patterns:** MVVM, Repository Pattern, Clean Architecture, TDD/BDD
-- **Technologies & Tools:** Android SDK, Android Studio, AOSP, Git, Agile, JIRA, Gradle, SDN, 5G, CI/CD, Unit Testing, TDD, BDD  , ARCore (Exploratory) 
-- **Soft Skills:** Complex Problem Solving, Leadership, Communication, Team Collaboration  
-- **Languages Spoken:** English (Fluent), German (Intermediate), Urdu (Native)  
+Chronological order; selected work reflecting progression from university through industry and research.
 
----
+- **Moringguide20** ([GitHub](https://github.com/muhammadmohsinnisar/Moringguide20)) — *University project, Jun 2021*  
+  Android application for the DCATI initiative; contributed to UI and feature delivery within academic scope.
 
-### 💼 Professional Experience Highlights
+- **5G Broadcast Player (AWT)** ([GitHub](https://github.com/muhammadmohsinnisar/5GBroadcastPlayer_AWT)) — *University project, Jan 2022*  
+  Android client for 5G broadcast and streaming playback. Implemented DASH, HLS, and SmoothStreaming pipelines using ExoPlayer and Cronet; demonstrated end-to-end 5G broadcast reception and decoding.
 
-- **Digital Turbine (Berlin, Germany)** — Software Engineer (Nov 2022 – Present)  
-  Developed and optimized core Mobile Advertisement SDK features in Kotlin & Java, reducing crashes and improving user engagement. Led code reviews, built unit tests, and collaborated cross-functionally to maintain high SDK stability.
+- **OpenMobileNetworkToolkit (OMNT)** ([GitHub](https://github.com/omnt/OpenMobileNetworkToolkit)) — *Fraunhofer FOKUS, Dec 2023*  
+  Android-based research tool for collecting and visualising 4G/5G KPIs; used in SDN and network-slicing benchmarks. Contributed during tenure at Fraunhofer FOKUS; now maintained by the omnt organisation.
 
-- **Fraunhofer FOKUS (Berlin, Germany)** — Research Assistant / Software Engineer (Nov 2020 – Mar 2023)  
-  Enhanced OpenMobileToolKit with advanced 5G standalone features using AOSP-level access. Contributed to 5G SDN architecture and designed benchmarks for next-gen mobile networks.
+- **Daily Task Manager** ([GitHub](https://github.com/muhammadmohsinnisar/DailyTaskManager)) — *May 2025*  
+  Lightweight task-management prototype with local CRUD and structured UI. Architecture prepared for Firebase-backed sync and multi-device consistency.
 
-- **E.C. Technologies (Karachi, Pakistan)** — Software Engineer (Jan 2019 – Sep 2019)  
-  Led mobile development for education and POS platforms. Mentored interns and improved QA workflows in Agile environments.
+- **Event Companion** ([Android](https://github.com/muhammadmohsinnisar/event-companion) · [Backend](https://github.com/muhammadmohsinnisar/ktor-event-companion) · [Mock API](https://github.com/muhammadmohsinnisar/eventcompanion-mock-api)) — *May 2025*  
+  Offline-first event scheduling application with QR-based import and Room-backed persistence. Enables full schedule and speaker access without connectivity; architecture designed for extension toward persistent, personalised schedules. Ktor backend with PostgreSQL and Exposed for event CRUD.
 
----
-### 🌟 Exclusive Projects
+- **MoodMate** ([GitHub](https://github.com/muhammadmohsinnisar/MoodMate) · [Play Store](https://play.google.com/store/apps/details?id=com.mohsin.moodmate)) — *May 2025*  
+  Privacy-first mental wellness tracker with local-only storage. Implements Russell’s Circumplex Model for valence–arousal mapping, statistical trend analysis, and configurable reminders. Material 3 UI; published on Google Play.
 
-### Remote Device Farm
-- A comprehensive web-based Android device farm with network access and modern UI for remote device management and testing.
-- Real-time screen sharing and device control entirely through the browser (no native apps required)
-- Advanced ADB log viewer with Android Studio-like filtering capabilities (level, tag, package, search)
-- Hardware button controls (volume, power, navigation) and touch input simulation
-- Samsung device optimization with device-specific performance tuning
-- APK installation and management with drag-and-drop support (up to 500MB)
-- Glass morphism UI design with smooth animations and responsive layout
-- Network access support - control devices from any device on your WiFi network
-- Built with Node.js/Express backend, React frontend, and Socket.IO for real-time communication
+- **FiatX** ([GitHub](https://github.com/muhammadmohsinnisar/fiatx)) — *Jun 2025*  
+  Currency converter with live rates and Room-based caching. Implements database-first logic for offline use; documented architectural improvements for cold-start offline scenarios. Material 3, edge-to-edge UI, production-ready store assets.
 
-#### Planned enhancements:
-* Wireless ADB integration for cable-free device management
-* Multi-user session support with device reservation system
-* Cloud deployment with Docker containerization
-* Advanced automation scripting and test execution capabilities
-
-[Explore the repo →](https://github.com/muhammadmohsinnisar/remote-device-farm)
-
-### 🌟 Open Source Contributions
-
-### FiatX – Currency Converter App
-- A modern Android app for converting between fiat currencies using real-time exchange rates with offline support.
-- Fetches fiat currency list and exchange rates from public APIs
-- Caches rates locally with Room and refreshes every 24 hours
-- Clean MVVM architecture with Repository, Retrofit, and StateFlow
-- Graceful error handling with fallback API and reactive UI updates
-- Simple and intuitive UI for selecting currencies and entering amounts
-
-##### Planned enhancements:
-* Rate graphs
-* Design refinements
-* Support for more currencies, and crypto mode
-
-[Explore the repo →](https://github.com/muhammadmohsinnisar/fiatx)
-
-### Event Companion App (Prototype)
-- A prototype Android app for managing event participation using QR codes and mobile interaction.
-- Scan event-specific QR codes to retrieve tickets and validate access.
-- View event schedule and session details.
-- Browse speaker information and profiles.
-- Designed to eventually support multiple events per user with persistent ticket management and backend integration.
-- Current version uses mocked API eventcompanion-mock-api for testing and demonstration.
-
-#### Planned enhancements:
-* Real backend integration to link QR code with live event data
-* Multi-event architecture with event list and switching
-* User authentication and event-specific profiles
-* UI/UX refinements and production readiness
-
-[Explore the repo →](https://github.com/muhammadmohsinnisar/event-companion)
-
-### check-doc-references: GitHub Action for Documentation Code Reference Validation
-- A GitHub Action that scans Markdown documentation files for inline code references and verifies they exist in your source code, preventing broken or outdated doc references.
-- Parses Markdown docs to extract inline code spans
-- Checks source code for matching references
-- Reports broken links and optionally fails CI runs on errors
-- Fully configurable paths for docs and code directories
-- Helps maintain accurate, up-to-date documentation automatically
-
-[Explore the repo →](https://github.com/muhammadmohsinnisar/check-doc-references)
-
-
-#### MoodMate: Emotional State Tracker & Visualizer (Prototype)
-- An Android prototype app designed to help users track, analyze, and visualize their mood patterns using emoticons mapped to valence-arousal dimensions.
-- Log and view daily moods with intuitive emoji interface.
-- Visualize emotional data on a circumplex graph and Russell’s Affect Grid.
-- Get insights on average emotional states over time.
-
-##### Planned enhancements:
-* Enhanced mood analytics and personalized recommendations
-* Integration with wearable devices and biometric data
-* Mood journaling with AI sentiment analysis
-* Dark mode, multi-language support, cloud sync, and notifications
-* Focused on empowering self-awareness and mental wellness through accessible mood tracking and innovative data visualization.
-
-
-[Explore the repo →](https://github.com/muhammadmohsinnisar/MoodMate)
-
-#### Daily Task Manager (Prototype)  
-A lightweight Android prototype app designed to help users organize and manage daily tasks efficiently with a simple, intuitive UI.  
-- Core features: Add, edit, delete tasks, basic task listing  
-- Planned enhancements: Firebase authentication, real-time syncing, push notifications, offline mode, dark theme, and Play Store readiness  
-- Focused on personalized productivity with secure user data and seamless multi-device support  
-
-[Explore the repo →](https://github.com/muhammadmohsinnisar/DailyTaskManager)
+- **Remote Device Farm** ([GitHub](https://github.com/muhammadmohsinnisar/remote-device-farm)) — *Aug 2025*  
+  Open-source infrastructure enabling remote access to physical Android devices for distributed testing and automated flows. Web-based control (Node.js, React, Socket.IO), device discovery, screen sharing, ADB log streaming, and APK deployment. Designed to eliminate device-sharing bottlenecks in distributed teams; production adoption at Digital Turbine.
 
 ---
 
-#### OpenMobileNetworkToolkit (OMNT)  
-Research-focused Android app providing detailed measurement and analysis tools for mobile communication networks (3GPP 2/3/4/5G).  
-- Collects radio and network data such as RSSI, RSRQ, RSRP, GNSS position, Cell ID
-- Exploring and benchmarking Network Slicing capabilities 
-- Supports bandwidth and latency tests via iPerf3 and ICMP ping  
-- Stores data locally or streams to InfluxDB with Grafana dashboards for visualization  
-- Configures carrier settings and accesses advanced device info without root access  
-- Developed for research projects prioritizing privacy, stability, and extensibility  
+## Skills & interests
 
-[Explore the repo →](https://github.com/omnt/OpenMobileNetworkToolkit)
+- **Core engineering:** Kotlin, Java, SQL, C
+- **Architecture & patterns:** Clean Architecture · MVVM · MVI · Repository Pattern · Reactive programming (Coroutines, StateFlow)
+- **Quality & testing:** TDD · BDD · Unit testing · CI/CD (GitHub Actions, GitLab CI)
+- **Mobile & platform:** Jetpack Compose · Room · ViewModel · LiveData · WorkManager · Firebase · AOSP · Appium
+- **Systems & tooling:** Reverse engineering (JADX, APKTool) · InfluxDB · Grafana · Git · Gradle
+- **Languages:** English (Fluent), German (Intermediate), Urdu (Native)
 
 ---
 
-### 📫 Let’s Connect  
-- LinkedIn: [linkedin.com/mohsinnisar795](https://www.linkedin.com/in/mohsinnisar795/)  
-- Email: mohsinnisarbutt60@gmail.com  
+## Education
+
+**Technische Universität Berlin** — Berlin, DE  
+*MS, Computer Science* · 2023
+
+**Sir Syed University of Engineering and Technology** — Karachi, PK  
+*BS, Computer Science* · 2018
 
 ---
 
-**Looking forward to collaborating, learning, and building amazing Android experiences!**
+## Contact
+
+[mohsinnisarbutt60@gmail.com](mailto:mohsinnisarbutt60@gmail.com) · [LinkedIn](https://www.linkedin.com/in/mohsinnisar795/) · [GitHub](https://github.com/muhammadmohsinnisar)
+
+*Portfolio page: [index.html](index.html) · Enable GitHub Pages on this repo to publish.*

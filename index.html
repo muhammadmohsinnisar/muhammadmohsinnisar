@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mohsin Nisar — Software Engineer (Android)</title>
+  <meta name="description" content="Portfolio of Mohsin Nisar — Software Engineer (Android), SDK, mobile & 5G. Berlin.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0d1117;
+      --surface: #161b22;
+      --border: #21262d;
+      --text: #e6edf3;
+      --text-muted: #8b949e;
+      --accent: #58a6ff;
+      --accent-hover: #79b8ff;
+      --max-w: 640px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 15px;
+    }
+    .page { max-width: var(--max-w); margin: 0 auto; padding: 0 24px 4rem; }
+
+    .hero {
+      padding: 4rem 0 3rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .hero h1 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin: 0 0 0.35rem;
+      letter-spacing: -0.03em;
+    }
+    .hero .role {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin: 0 0 1.25rem;
+    }
+    .hero .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.9rem;
+    }
+    .hero .links a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .hero .links a:hover { color: var(--accent-hover); text-decoration: underline; }
+
+    .section {
+      padding: 2.5rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .section:last-of-type { border-bottom: 0; }
+    .section-title {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      margin: 0 0 1.25rem;
+    }
+    .project-list { display: flex; flex-direction: column; gap: 0.75rem; }
+    .project {
+      display: block;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.15s ease, background 0.15s ease;
+    }
+    .project:hover {
+      border-color: var(--accent);
+      background: rgba(88, 166, 255, 0.06);
+    }
+    .project-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+    .project-name { font-weight: 600; font-size: 0.95rem; color: var(--text); }
+    .project-meta {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+    .project-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin: 0.35rem 0 0;
+      line-height: 1.5;
+    }
+    .project-actions {
+      margin-top: 0.6rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      font-size: 0.8rem;
+    }
+    .project-actions a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .project-actions a:hover { text-decoration: underline; }
+
+    .footer {
+      padding: 2.5rem 0;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+    .footer a { color: var(--accent); text-decoration: none; }
+    .footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="hero">
+      <h1>Mohsin Nisar</h1>
+      <p class="role">Software Engineer (Android) · SDK · Mobile & 5G</p>
+      <nav class="links">
+        <a href="https://github.com/muhammadmohsinnisar">GitHub</a>
+        <a href="https://www.linkedin.com/in/mohsinnisar795/">LinkedIn</a>
+        <a href="mailto:mohsinnisarbutt60@gmail.com">Email</a>
+        <a href="https://github.com/muhammadmohsinnisar/muhammadmohsinnisar/blob/main/README.md">Resume / README</a>
+      </nav>
+    </header>
+
+    <section class="section">
+      <h2 class="section-title">Projects & open source</h2>
+      <div class="project-list">
+        <a href="https://github.com/muhammadmohsinnisar/remote-device-farm" class="project" target="_blank" rel="noopener">
+          <div class="project-header">
+            <span class="project-name">Remote Device Farm</span>
+            <span class="project-meta">Aug 2025</span>
+          </div>
+          <p class="project-desc">Web-based infrastructure for remote access to physical Android devices; distributed testing and automated flows.</p>
+          <div class="project-actions">
+            <span>View on GitHub →</span>
+          </div>
+        </a>
+
+        <a href="https://github.com/muhammadmohsinnisar/fiatx" class="project" target="_blank" rel="noopener">
+          <div class="project-header">
+            <span class="project-name">FiatX</span>
+            <span class="project-meta">Jun 2025</span>
+          </div>
+          <p class="project-desc">Currency converter with live rates and Room-based caching; database-first for offline use.</p>
+          <div class="project-actions">
+            <span>View on GitHub →</span>
+          </div>
+        </a>
+
+        <a href="https://github.com/muhammadmohsinnisar/MoodMate" class="project" target="_blank" rel="noopener">
+          <div class="project-header">
+            <span class="project-name">MoodMate</span>
+            <span class="project-meta">May 2025</span>
+          </div>
+          <p class="project-desc">Privacy-first mental wellness tracker; Russell’s Circumplex Model, local-only storage. On Google Play.</p>
+          <div class="project-actions">
+            <span>GitHub</span>
+            <a href="https://play.google.com/store/apps/details?id=com.mohsin.moodmate" target="_blank" rel="noopener" onclick="event.stopPropagation()">Play Store</a>
+          </div>
+        </a>
+
+        <a href="https://github.com/muhammadmohsinnisar/event-companion" class="project" target="_blank" rel="noopener">
+          <div class="project-header">
+            <span class="project-name">Event Companion</span>
+            <span class="project-meta">May 2025</span>
+          </div>
+          <p class="project-desc">Offline-first event scheduling with QR-based import and Room-backed persistence; Ktor backend.</p>
+          <div class="project-actions">
+            <span>Android</span>
+            <a href="https://github.com/muhammadmohsinnisar/ktor-event-companion" target="_blank" rel="noopener" onclick="event.stopPropagation()">Backend</a>
+          </div>
+        </a>
+
+        <a href="https://github.com/muhammadmohsinnisar/DailyTaskManager" class="project" target="_blank" rel="noopener">
+          <div class="project-header">
+            <span class="project-name">Daily Task Manager</span>
+            <span class="project-meta">May 2025</span>
+          </div>
+          <p class="project-desc">Lightweight task-management prototype; architecture prepared for Firebase sync.</p>
+          <div class="project-actions">
+            <span>View on GitHub →</span>
+          </div>
+        </a>
+
+        <a href="https://github.com/omnt/OpenMobileNetworkToolkit" class="project" target="_blank" rel="noopener">
+          <div class="project-header">
+            <span class="project-name">OpenMobileNetworkToolkit (OMNT)</span>
+            <span class="project-meta">Fraunhofer FOKUS · Dec 2023</span>
+          </div>
+          <p class="project-desc">Android research tool for 4G/5G KPI collection and visualisation; SDN and slicing benchmarks.</p>
+          <div class="project-actions">
+            <span>View on GitHub →</span>
+          </div>
+        </a>
+
+        <a href="https://github.com/muhammadmohsinnisar/5GBroadcastPlayer_AWT" class="project" target="_blank" rel="noopener">
+          <div class="project-header">
+            <span class="project-name">5G Broadcast Player (AWT)</span>
+            <span class="project-meta">University · Jan 2022</span>
+          </div>
+          <p class="project-desc">Android client for 5G broadcast/streaming; ExoPlayer, DASH, HLS, SmoothStreaming, Cronet.</p>
+          <div class="project-actions">
+            <span>View on GitHub →</span>
+          </div>
+        </a>
+
+        <a href="https://github.com/muhammadmohsinnisar/Moringguide20" class="project" target="_blank" rel="noopener">
+          <div class="project-header">
+            <span class="project-name">Moringguide20</span>
+            <span class="project-meta">University · Jun 2021</span>
+          </div>
+          <p class="project-desc">Android application for the DCATI initiative.</p>
+          <div class="project-actions">
+            <span>View on GitHub →</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p><a href="https://github.com/muhammadmohsinnisar">muhammadmohsinnisar</a> · Berlin</p>
+    </footer>
+  </div>
+</body>
+</html>
